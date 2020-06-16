@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import students from "../../students.json";
 import Table from "../../components/Table";
 
-
 class Home extends Component {
   state = {
     students
@@ -19,9 +18,16 @@ class Home extends Component {
   render() {
     return (
       <React.Fragment>
-        <h1>Student Chart</h1>
+        <h1 style={{textAlign: "center"}} className="m-5">Student Chart</h1>
         {this.state.students.map((student) => (
-          <Table key={student.id} name={student.name} />
+          <Table
+            key={student._id}
+            name={student.name}
+            math={student.grades[0]}
+            history={student.grades[1]}
+            science={student.grades[2]}
+            english={student.grades[3]}
+          />
         ))}
       </React.Fragment>
     );
