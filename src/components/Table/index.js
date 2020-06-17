@@ -7,7 +7,7 @@ class Table extends Component {
 
     return (
       <React.Fragment>
-        <table className="table table-bordered container">
+        <table className="table table-bordered container responsive">
           <thead>
             <tr>
               <th scope="col">Name</th>

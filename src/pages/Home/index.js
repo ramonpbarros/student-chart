@@ -2,7 +2,25 @@ import React, { Component } from "react";
 import Table from "../../components/Table";
 import Form from "../../components/Form";
 import studentsJson from "../../students.json";
+import gpaCalc from "../../components/Gpa";
 import { v4 as uuidv4 } from "uuid";
+
+let mathScore;
+let historyScore;
+let scienceScore;
+let englishScore;
+
+studentsJson.map(() => {
+  return (
+    (mathScore = gpaCalc(studentsJson[0].grades[0].slice(7))),
+    (historyScore = gpaCalc(studentsJson[0].grades[1].slice(10))),
+    (scienceScore = gpaCalc(studentsJson[0].grades[2].slice(10))),
+    (englishScore = gpaCalc(studentsJson[0].grades[3].slice(10)))
+  );
+});
+
+let gpa = (mathScore + historyScore + scienceScore + englishScore) / 4;
+// console.log(gpa);
 
 class Home extends Component {
   constructor() {
@@ -77,4 +95,5 @@ class Home extends Component {
     );
   }
 }
+
 export default Home;
