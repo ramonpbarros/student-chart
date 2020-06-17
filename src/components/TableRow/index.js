@@ -11,7 +11,8 @@ function TableRow(props) {
   let scienceScore;
   let englishScore;
 
-  if (math.slice(7) === "A") {
+//  TODO: create function
+if (math.slice(7) === "A") {
     mathScore = 4;
   } else if (math.slice(7) === "B") {
     mathScore = 3;
@@ -60,15 +61,21 @@ function TableRow(props) {
   }
 
   let gpa = (mathScore + historyScore + scienceScore + englishScore) / 4;
+
   return (
-      <tr>
-        <td>{props.name}</td>
-        <td>{math.slice(7)}</td>
-        <td>{history.slice(9)}</td>
-        <td>{science.slice(9)}</td>
-        <td>{english.slice(9)}</td>
-        <td>{gpa}</td>
-      </tr>
+    <tr
+      className={
+        `${gpa >= 3.5 ? "btn-success" : ""}` +
+        `${gpa === 1.5 ? "btn-danger" : ""}`
+      }
+    >
+      <td>{props.name}</td>
+      <td>{math.slice(7)}</td>
+      <td>{history.slice(10)}</td>
+      <td>{science.slice(10)}</td>
+      <td>{english.slice(10)}</td>
+      <td>{gpa}</td>
+    </tr>
   );
 }
 export default TableRow;

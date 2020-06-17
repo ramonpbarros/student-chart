@@ -3,50 +3,55 @@ import React, { Component } from "react";
 class Form extends Component {
   render() {
     return (
-      <form className="container mb-2" onSubmit={this.props.handleFormSubmit}>
+      <form className="container mb-2" onSubmit={this.props.handleFormSubmit} id="form">
         <div className="form-row">
           <div className="col">
             <input
-              type="text"
               placeholder="Name"
+              id="name"
+              value={this.props.newName}
+              type="text"
               name="name"
-              value={this.props.name}
               onChange={this.props.handleInputChange}
             />
           </div>
           <div className="col">
             <input
-              type="text"
               placeholder="Math"
+              id="math"
+              value={this.props.newMath}
+              type="text"
               name="math"
-              value={this.props.math}
               onChange={this.props.handleInputChange}
             />
           </div>
           <div className="col">
             <input
-              type="text"
               placeholder="History"
+              id="history"
+              value={this.props.newHistory}
+              type="text"
               name="history"
-              value={this.props.history}
               onChange={this.props.handleInputChange}
             />
           </div>
           <div className="col">
             <input
-              type="text"
               placeholder="Science"
+              id="science"
+              value={this.props.newScience}
+              type="text"
               name="science"
-              value={this.props.science}
               onChange={this.props.handleInputChange}
             />
           </div>
           <div className="col">
             <input
-              type="text"
               placeholder="English"
+              id="english"
+              value={this.props.newEnglish}
+              type="text"
               name="english"
-              value={this.props.english}
               onChange={this.props.handleInputChange}
             />
           </div>

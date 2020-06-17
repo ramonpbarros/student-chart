@@ -1,15 +1,10 @@
 import React, { Component } from "react";
 import Table from "../../components/Table";
 import Form from "../../components/Form";
+import studentsJson from "../../students.json";
+import { v4 as uuidv4 } from "uuid";
 
 class Home extends Component {
-  // removeFriend = id => {
-  //   // Filter this.state.friends for friends with an id not equal to the id
-  //   // being removed
-  //   const friends = this.state.friends.filter(friend => friend.id !== id);
-  //   // Set this.state.friends equal to the new friends array
-  //   this.setState({ friends });
-  // };
   constructor() {
     super();
     this.state = {
@@ -18,25 +13,32 @@ class Home extends Component {
       history: "",
       science: "",
       english: "",
-      items: []
+      students: studentsJson
     };
   }
 
   handleFormSubmit = (event) => {
     event.preventDefault();
 
-    let items = [...this.state.items];
+    let students = [...this.state.students];
 
-    items.push({
+    students.push({
       name: this.state.name,
+      grades: [
+        `Math - ${this.state.math}`,
+        `History - ${this.state.history}`,
+        `Science - ${this.state.science}`,
+        `English - ${this.state.english}`
+      ],
       math: this.state.math,
       history: this.state.history,
       science: this.state.science,
-      english: this.state.english
+      english: this.state.english,
+      _id: uuidv4()
     });
 
     this.setState({
-      items,
+      students,
       name: "",
       math: "",
       history: "",
@@ -70,7 +72,7 @@ class Home extends Component {
           newScience={this.state.science}
           newEnglish={this.state.english}
         />
-        <Table items={this.state.items} />
+        <Table students={this.state.students} key={"studentKey"} />
       </React.Fragment>
     );
   }
