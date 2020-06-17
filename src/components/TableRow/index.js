@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import gpaCalc from "../Gpa";
 
 function TableRow(props) {
@@ -6,9 +6,12 @@ function TableRow(props) {
   const history = props.history;
   const science = props.science;
   const english = props.english;
-
+  
   let highScore = 3.5;
   let lowScore = 1.5;
+
+  const [hScore, setHscore] = useState(highScore)
+
 
   let mathScore = gpaCalc(math.slice(7));
   let historyScore = gpaCalc(history.slice(10));
@@ -18,19 +21,22 @@ function TableRow(props) {
   let gpa = (mathScore + historyScore + scienceScore + englishScore) / 4;
 
   function score() {
-    if (gpa >= highScore) {
+    if (gpa > hScore) {
       highScore = gpa;
-      console.log(highScore);
+      setHscore(highScore);
+      console.log(hScore, highScore)
       return "btn-success";
-    } else if (gpa < highScore && gpa > lowScore) {
+    } else if (gpa === hScore){
+      return "btn-success";
+    }else if (gpa < hScore && gpa > lowScore) {
       return "";
     }
 
     if (gpa <= lowScore) {
       lowScore = gpa;
-      console.log(lowScore);
+      // console.log(lowScore);
       return "btn-danger";
-    } else if (gpa > lowScore && gpa < highScore) {
+    } else if (gpa > lowScore && gpa < hScore) {
       return "";
     }
   }
