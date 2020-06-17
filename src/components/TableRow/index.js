@@ -7,8 +7,8 @@ function TableRow(props) {
   const science = props.science;
   const english = props.english;
 
-  let highScore = 3.5
-  let lowScore = 1.5
+  let highScore = 3.5;
+  let lowScore = 1.5;
 
   let mathScore = gpaCalc(math.slice(7));
   let historyScore = gpaCalc(history.slice(10));
@@ -18,27 +18,25 @@ function TableRow(props) {
   let gpa = (mathScore + historyScore + scienceScore + englishScore) / 4;
 
   function score() {
-    if (gpa >= highScore){
+    if (gpa >= highScore) {
       highScore = gpa;
-      console.log(highScore)
-      return "btn-success"
-    }
-    if (gpa <= lowScore) {
-      lowScore = gpa;
-      console.log(lowScore)
-      return "btn-danger"
+      console.log(highScore);
+      return "btn-success";
+    } else if (gpa < highScore && gpa > lowScore) {
+      return "";
     }
 
+    if (gpa <= lowScore) {
+      lowScore = gpa;
+      console.log(lowScore);
+      return "btn-danger";
+    } else if (gpa > lowScore && gpa < highScore) {
+      return "";
+    }
   }
 
   return (
-    <tr
-      className={
-        score()
-        // `${gpa >= highScore ? "btn-success" : ""}` +
-        // `${gpa <= lowScore ? "btn-danger" : ""}`
-      }
-    >
+    <tr className={score()}>
       <td>{props.name}</td>
       <td>{math.slice(7)}</td>
       <td>{history.slice(10)}</td>
