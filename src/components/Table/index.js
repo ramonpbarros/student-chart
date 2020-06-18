@@ -12,7 +12,6 @@ function Table(props) {
       let lScore = 4;
       props.students.forEach((student) => {
         let studentGpa = gpaCalc(student.grades);
-        console.log(studentGpa);
         if (studentGpa > hScore) {
           hScore = studentGpa;
         }
@@ -23,8 +22,6 @@ function Table(props) {
       setHighScore(hScore);
       setLowScore(lScore);
     }
-    console.log("hgScore " + highScore);
-    console.log("lowScore: " + lowScore);
   }, [props.students]);
 
   return (

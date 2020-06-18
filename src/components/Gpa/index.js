@@ -16,7 +16,7 @@ function gpaCalc(grades) {
       case "D":
         gpa = gpa + 1;
         break;
-      case "F":
+      default:
         gpa = gpa + 0;
     }
   });

@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import gpaCalc from "../Gpa";
+import React from "react";
 
 function TableRow(props) {
   const math = props.math;
@@ -7,41 +6,7 @@ function TableRow(props) {
   const science = props.science;
   const english = props.english;
 
-  // let highScore = 3.5;
-  // let lowScore = 1.5;
-
-  // const [hScore, setHscore] = useState(highScore);
-
-  // let mathScore = gpaCalc(math.slice(7));
-  // let historyScore = gpaCalc(history.slice(10));
-  // let scienceScore = gpaCalc(science.slice(10));
-  // let englishScore = gpaCalc(english.slice(10));
-
-  // let gpa = (mathScore + historyScore + scienceScore + englishScore) / 4;
-
-  // function score() {
-  //   if (gpa > hScore) {
-  //     highScore = gpa;
-  //     setHscore(highScore);
-  //     console.log(hScore, highScore);
-  //     return "btn-success";
-  //   } else if (gpa === hScore) {
-  //     return "btn-success";
-  //   } else if (gpa < hScore && gpa > lowScore) {
-  //     return "";
-  //   }
-
-  //   if (gpa <= lowScore) {
-  //     lowScore = gpa;
-  //     // console.log(lowScore);
-  //     return "btn-danger";
-  //   } else if (gpa > lowScore && gpa < hScore) {
-  //     return "";
-  //   }
-  // }
- 
   function determinedClassFallOut() {
-    console.log(props.highGpa, props.studentGpa)
     if (props.highGpa === props.studentGpa) {
       return "btn-success";
     }
