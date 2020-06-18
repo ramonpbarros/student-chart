@@ -13,7 +13,7 @@ function TableRow(props) {
     if (props.lowGpa === props.studentGpa) {
       return "btn-danger";
     } else {
-      return "test";
+      return "";
     }
   }
 

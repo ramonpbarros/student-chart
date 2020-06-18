@@ -2,7 +2,6 @@ function gpaCalc(grades) {
   let gpa = 0;
   grades.forEach((element) => {
     let letterGrade = element.split(" ")[2];
-
     switch (letterGrade) {
       case "A":
         gpa = gpa + 4;
