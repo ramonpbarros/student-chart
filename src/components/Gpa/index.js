@@ -1,16 +1,27 @@
+function gpaCalc(grades) {
+  let gpa = 0;
+  grades.forEach((element) => {
+    let letterGrade = element.split(" ")[2];
 
-function gpaCalc(materia) {
-  if (materia === "A") {
-    return 4;
-  } else if (materia === "B") {
-    return 3;
-  } else if (materia === "C") {
-    return 2;
-  } else if (materia === "D") {
-    return 1;
-  } else {
-    return 0;
-  }
+    switch (letterGrade) {
+      case "A":
+        gpa = gpa + 4;
+        break;
+      case "B":
+        gpa = gpa + 3;
+        break;
+      case "C":
+        gpa = gpa + 2;
+        break;
+      case "D":
+        gpa = gpa + 1;
+        break;
+      case "F":
+        gpa = gpa + 0;
+    }
+  });
+
+  return gpa / grades.length;
 }
 
-export default gpaCalc
+export default gpaCalc;

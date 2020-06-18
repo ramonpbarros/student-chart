@@ -6,49 +6,60 @@ function TableRow(props) {
   const history = props.history;
   const science = props.science;
   const english = props.english;
-  
-  let highScore = 3.5;
-  let lowScore = 1.5;
 
-  const [hScore, setHscore] = useState(highScore)
+  // let highScore = 3.5;
+  // let lowScore = 1.5;
 
+  // const [hScore, setHscore] = useState(highScore);
 
-  let mathScore = gpaCalc(math.slice(7));
-  let historyScore = gpaCalc(history.slice(10));
-  let scienceScore = gpaCalc(science.slice(10));
-  let englishScore = gpaCalc(english.slice(10));
+  // let mathScore = gpaCalc(math.slice(7));
+  // let historyScore = gpaCalc(history.slice(10));
+  // let scienceScore = gpaCalc(science.slice(10));
+  // let englishScore = gpaCalc(english.slice(10));
 
-  let gpa = (mathScore + historyScore + scienceScore + englishScore) / 4;
+  // let gpa = (mathScore + historyScore + scienceScore + englishScore) / 4;
 
-  function score() {
-    if (gpa > hScore) {
-      highScore = gpa;
-      setHscore(highScore);
-      console.log(hScore, highScore)
+  // function score() {
+  //   if (gpa > hScore) {
+  //     highScore = gpa;
+  //     setHscore(highScore);
+  //     console.log(hScore, highScore);
+  //     return "btn-success";
+  //   } else if (gpa === hScore) {
+  //     return "btn-success";
+  //   } else if (gpa < hScore && gpa > lowScore) {
+  //     return "";
+  //   }
+
+  //   if (gpa <= lowScore) {
+  //     lowScore = gpa;
+  //     // console.log(lowScore);
+  //     return "btn-danger";
+  //   } else if (gpa > lowScore && gpa < hScore) {
+  //     return "";
+  //   }
+  // }
+ 
+  function determinedClassFallOut() {
+    console.log(props.highGpa, props.studentGpa)
+    if (props.highGpa === props.studentGpa) {
       return "btn-success";
-    } else if (gpa === hScore){
-      return "btn-success";
-    }else if (gpa < hScore && gpa > lowScore) {
-      return "";
     }
-
-    if (gpa <= lowScore) {
-      lowScore = gpa;
-      // console.log(lowScore);
+    if (props.lowGpa === props.studentGpa) {
       return "btn-danger";
-    } else if (gpa > lowScore && gpa < hScore) {
-      return "";
+    } else {
+      return "test";
     }
   }
 
   return (
-    <tr className={score()}>
+    <tr className={determinedClassFallOut()}>
       <td>{props.name}</td>
       <td>{math.slice(7)}</td>
       <td>{history.slice(10)}</td>
       <td>{science.slice(10)}</td>
       <td>{english.slice(10)}</td>
-      <td>{gpa}</td>
+      <td>{props.studentGpa}</td>
     </tr>
   );
 }
